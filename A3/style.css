@@ -1,0 +1,31 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  background: #f4f1ec;
+  overflow: hidden;
+  cursor: none;
+}
+
+#wall {
+  position: fixed;
+  inset: 0;
+}
+
+.note {
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  background: var(--note-color, #f6e7a1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+  transform: translate(-50%, -50%) rotate(var(--tilt, 0deg));
+}
+
+.preview {
+  position: fixed;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  z-index: 100000;
+}
