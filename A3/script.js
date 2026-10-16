@@ -19,9 +19,22 @@ document.addEventListener('mousemove', (e) => {
   preview.style.top = e.clientY + 'px';
 });
 
+document.addEventListener('mousedown', (e) => {
+  if (e.button === 0) {
+    preview.classList.add('pressing');
+  }
+});
+
+document.addEventListener('mouseup', () => {
+  preview.classList.remove('pressing');
+});
+
 document.addEventListener('click', (e) => {
   const note = document.createElement('div');
-  note.className = 'note';
+  note.className = 'note just-pinned';
+  note.addEventListener('animationend', () => {
+    note.classList.remove('just-pinned');
+  }, { once: true });
   note.style.left = e.clientX + 'px';
   note.style.top = e.clientY + 'px';
   note.style.zIndex = zCounter++;
