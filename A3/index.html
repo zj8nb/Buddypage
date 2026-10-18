@@ -9,9 +9,39 @@
   <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
-  <main id="wall"></main>
-  <div id="preview" class="note preview"></div>
+<body data-tool="note">
+  <!-- The wall: everything that gets pinned lives here. -->
+  <main id="wall" aria-label="Note wall"></main>
+
+  <!-- The tool tray along the bottom of the screen.
+       The tools lie in it like real objects; picking one up is how you switch tools. -->
+  <footer id="desk" aria-label="Desk with tools">
+    <button class="tool" data-tool="note" aria-label="Sticky note pad">
+      <img src="images/notepad.jpg" alt="">
+    </button>
+    <button class="tool" data-tool="pen" aria-label="Pencil">
+      <img src="images/pencil.jpg" alt="">
+    </button>
+    <button class="tool" data-tool="cursor" aria-label="Cursor">
+      <img src="images/cursor.jpg" alt="">
+    </button>
+  </footer>
+
+  <!-- What the mouse is "holding". Only the part matching the current tool is shown. -->
+  <div id="hand" aria-hidden="true">
+    <div class="note preview held-note"></div>
+    <img class="held-pen" src="images/pencil.jpg" alt="">
+    <img class="held-cursor" src="images/cursor.jpg" alt="">
+  </div>
+
+  <!-- Image credits:
+       images/pencil.jpg  - Pencil emoji (U+270F), Google Noto Emoji v2.034, Apache License 2.0
+                            https://commons.wikimedia.org/wiki/File:Noto_Emoji_v2.034_270f.svg
+       images/cursor.jpg  - "Arrow cursor" by Koreller, CC0
+                            https://commons.wikimedia.org/wiki/File:Arrow_cursor.svg
+       images/notepad.jpg - Adapted from "Sticky notes.svg" by Amitchell125, public domain
+                            https://commons.wikimedia.org/wiki/File:Sticky_notes.svg -->
+
   <script src="script.js"></script>
 </body>
 
