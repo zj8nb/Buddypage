@@ -25,8 +25,14 @@
     <button class="tool" data-tool="cursor" aria-label="Cursor">
       <img src="images/cursor.jpg" alt="">
     </button>
+    <button id="bin" aria-label="Bin">🗑️<span id="bin-count">0</span></button>
   </footer>
 
+  <!-- Knocked-off notes end up here, text and ink intact. -->
+  <section id="bin-view" hidden>
+    <p>in the bin</p>
+    <div id="bin-list"></div>
+  </section>
   <!-- What the mouse is "holding". Only the part matching the current tool is shown. -->
   <div id="hand" aria-hidden="true">
     <div class="note preview held-note"></div>

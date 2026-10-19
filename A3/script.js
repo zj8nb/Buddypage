@@ -4,6 +4,10 @@ const hand = document.getElementById('hand');
 const heldNote = hand.querySelector('.held-note');
 const heldPen = hand.querySelector('.held-pen');
 const toolButtons = document.querySelectorAll('.tool');
+const bin = document.getElementById('bin');
+const binView = document.getElementById('bin-view');
+const binList = document.getElementById('bin-list');
+const binCount = document.getElementById('bin-count');
 
 const colors = ['#f6e7a1', '#f4c7a8', '#cfdcb6', '#ecc3c3', '#efe6d6'];
 const NOTE_SIZE = 160;
@@ -161,8 +165,24 @@ function dropNote(note) {
   note.style.setProperty('--spin-dir', Math.random() < 0.5 ? -1 : 1);
   note.style.setProperty('--drift', (Math.random() * 120 - 60).toFixed(0) + 'px');
   note.classList.add('falling');
-  note.addEventListener('animationend', () => note.remove(), { once: true });
+  note.addEventListener('animationend', () => throwInBin(note), { once: true });
 }
+
+// The note isn't deleted: the same element is moved into the bin,
+// so its text and canvas drawing come along unchanged.
+function throwInBin(note) {
+  note.classList.remove('falling');
+  note.style.left = '';
+  note.style.top = '';
+  note.style.zIndex = '';
+  binList.prepend(note);
+  binCount.textContent = binList.children.length;
+}
+
+bin.addEventListener('click', (e) => {
+  e.stopPropagation();
+  binView.hidden = !binView.hidden;
+});
 
 /* ---------- Pointer handling ---------- */
 

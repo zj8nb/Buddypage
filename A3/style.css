@@ -208,6 +208,60 @@ body {
   }
 }
 
+/* --- Bin --- */
+
+/* Like the other desk icons, these values took a few rounds of
+   adjusting before they looked right. */
+
+#bin {
+  all: unset;
+  position: relative;
+  font-size: 56px;
+}
+
+#bin-count {
+  position: absolute;
+  top: -4px;
+  right: -12px;
+  padding: 3px 6px;
+  border-radius: 10px;
+  background: #2b2420;
+  color: #fff;
+  font: 12px/1 sans-serif;
+}
+
+#bin-view {
+  position: fixed;
+  left: 16px;
+  right: 16px;
+  bottom: var(--desk-h);
+  max-height: 55vh;
+  overflow: auto;
+  z-index: 20;
+  padding: 20px;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+#bin-view[hidden] {
+  display: none;
+}
+
+#bin-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-top: 12px;
+}
+
+/* In the bin, notes sit in a loose row instead of at their old wall position. */
+#bin-list .note {
+  position: relative;
+  flex: none;
+  transform: rotate(var(--tilt, 0deg));
+}
+
 /* ---------- The hand (custom cursor) ---------- */
 
 #hand {
