@@ -1,3 +1,16 @@
+/* Note Wall
+   Inspired by a sticky note wall in a café near my home.
+   Click fits sticky notes well, since you just press a note onto
+   the wall. 
+   Advantages: nothing to install. can stay open in a tab while working,
+   so small things can be jotted down quickly. It is also more fun than 
+   the computer's built-in notepad. */
+/* AI used:
+chatgpt was helped me find tutorials and solve problems
+   such as the "typo" many of my errors have been due to typos...
+   also translated the comments.  */
+
+
 const wall = document.getElementById('wall');
 const desk = document.getElementById('desk');
 const hand = document.getElementById('hand');
